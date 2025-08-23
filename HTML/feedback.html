@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trova Clothing – Feedback</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+
+    <!-- FEEDBACK-PAGE STYLES -->
+    <style>
+      :root {
+        --brand: #e95454;
+        --grey-50: #fafafa;
+        --grey-200: #f0f0f0;
+        --grey-600: #666;
+        --grey-800: #333;
+      }
+
+      /* ---- page wrapper ---- */
+      .feedback-body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--grey-50);
+        padding: 40px 20px;
+        color: var(--grey-800);
+      }
+      .feedback-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      @media (max-width: 768px) {
+        .feedback-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+      }
+
+      /* ---- section titles ---- */
+      .feedback-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .feedback-header h1 {
+        font-size: 2.5rem;
+        color: var(--brand);
+        margin-bottom: 8px;
+      }
+      .feedback-header p {
+        font-size: 1.2rem;
+        color: var(--grey-600);
+      }
+
+      /* ---- white cards ---- */
+      .feedback-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 35px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .feedback-card h2 {
+        color: var(--brand);
+        margin-bottom: 25px;
+        font-size: 1.6rem;
+      }
+
+      /* ---- form ---- */
+      .feedback-form-group {
+        margin-bottom: 22px;
+      }
+      .feedback-form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: var(--grey-800);
+      }
+      .feedback-form-group input,
+      .feedback-form-group textarea,
+      .feedback-form-group select {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--grey-200);
+        border-radius: 8px;
+        font-size: 15px;
+        transition: border-color 0.3s;
+      }
+      .feedback-form-group input:focus,
+      .feedback-form-group textarea:focus,
+      .feedback-form-group select:focus {
+        border-color: var(--brand);
+        outline: none;
+      }
+
+      /* ---- star rating ---- */
+      .feedback-stars {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin: 18px 0;
+      }
+      .feedback-star {
+        font-size: 28px;
+        color: var(--grey-200);
+        cursor: pointer;
+        transition: color 0.25s, transform 0.25s;
+      }
+      .feedback-star.active,
+      .feedback-star:hover {
+        color: var(--brand);
+        transform: scale(1.15);
+      }
+
+      /* ---- submit button ---- */
+      .feedback-submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .feedback-submit-btn:hover {
+        background: #d14848;
+      }
+
+      /* ---- reviews ---- */
+      .feedback-filter-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+      }
+      .feedback-filter-btn {
+        padding: 6px 18px;
+        background: var(--grey-200);
+        color: var(--grey-800);
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s, color 0.3s;
+      }
+      .feedback-filter-btn.active,
+      .feedback-filter-btn:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      .feedback-review-card {
+        background: #fff;
+        border-left: 4px solid var(--brand);
+        padding: 20px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        animation: fadeIn 0.5s;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .feedback-review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .feedback-review-name {
+        font-weight: bold;
+        color: var(--brand);
+      }
+      .feedback-review-rating {
+        color: var(--brand);
+      }
+      .feedback-review-date {
+        font-size: 0.85rem;
+        color: var(--grey-600);
+      }
+      .feedback-review-content {
+        margin-top: 8px;
+        color: var(--grey-600);
+        line-height: 1.5;
+      }
+
+      /* ---- success banner ---- */
+      .feedback-success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        text-align: center;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =================  NAVIGATION  ================= -->
+    <nav class="navbar">
+      <a href="homepage.html" class="logo">TROVA</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productPage.html">Product</a></li>
+        <li><a href="aboutus.html">About&nbsp;Us</a></li>
+        <li><a href="feedbackPage.html" class="active">Feedback</a></li>
+        <li>
+          <a href="contactus.html" class="contact-btn">Contact&nbsp;Us</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- =================  PAGE CONTENT  ================= -->
+    <main class="feedback-body">
+      <div class="feedback-header">
+        <h1>Customer Feedback</h1>
+        <p>We value your opinion – tell us how we’re doing!</p>
+      </div>
+
+      <div id="feedbackSuccess" class="feedback-success">
+        Thank you! Your feedback has been submitted.
+      </div>
+
+      <div class="feedback-container">
+        <!-- ===== FORM ===== -->
+        <section class="feedback-card">
+          <h2>Leave Your Feedback</h2>
+          <form id="feedbackForm">
+            <div class="feedback-form-group">
+              <label for="feedbackName">Your Name</label>
+              <input type="text" id="feedbackName" name="name" required />
+            </div>
+
+            <div class="feedback-form-group">
+              <label for="feedbackEmail">Email</label>
+              <input type="email" id="feedbackEmail" name="email" required />
+            </div>
+
+            <div class="feedback-form-group">
+              <label for="feedbackProduct">Product Purchased</label>
+              <select id="feedbackProduct" name="product" required>
+                <option value="">Select a product</option>
+                <option>Summer Dress</option>
+                <option>Denim Jacket</option>
+                <option>Casual T-shirt</option>
+                <option>Jeans</option>
+                <option>Formal Shirt</option>
+              </select>
+            </div>
+
+            <div class="feedback-form-group">
+              <label>Rating</label>
+              <div class="feedback-stars">
+                <span class="feedback-star" data-rate="1">★</span>
+                <span class="feedback-star" data-rate="2">★</span>
+                <span class="feedback-star" data-rate="3">★</span>
+                <span class="feedback-star" data-rate="4">★</span>
+                <span class="feedback-star" data-rate="5">★</span>
+              </div>
+            </div>
+
+            <div class="feedback-form-group">
+              <label for="feedbackReview">Your Review</label>
+              <textarea
+                id="feedbackReview"
+                rows="5"
+                required
+                placeholder="Tell us about your experience..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="feedback-submit-btn">
+              Submit Feedback
+            </button>
+          </form>
+        </section>
+
+        <!-- ===== REVIEWS ===== -->
+        <section class="feedback-card">
+          <h2>Customer Reviews</h2>
+
+          <div class="feedback-filter-group">
+            <button class="feedback-filter-btn active" data-filter="all">
+              All
+            </button>
+            <button class="feedback-filter-btn" data-filter="5">5★</button>
+            <button class="feedback-filter-btn" data-filter="4">4★</button>
+            <button class="feedback-filter-btn" data-filter="3">3★</button>
+          </div>
+
+          <div id="feedbackReviewsList"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- =================  FOOTER  ================= -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="company-logo">
+            <div class="company-logo-first">
+              <h1 class="logo-content">TROVA</h1>
+              <p class="logo-content-trademark">&trade;</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-content">
+          <h3>Contact Us</h3>
+          <p>Email: Trova24@gmail.com</p>
+          <p>Phone: 01-5970012</p>
+          <p>Address: Kamalpokhari streets</p>
+        </div>
+
+        <div class="footer-content">
+          <h3>Quick Links</h3>
+          <div class="links"><a href="homepage.html">Home</a></div>
+          <div class="links"><a href="productPage.html">Product</a></div>
+          <div class="links"><a href="Aboutus.html">About Us</a></div>
+          <div class="links"><a href="feedback.html">Feedback</a></div>
+          <div class="links"><a href="contactus.html">Contact Us</a></div>
+        </div>
+
+        <div class="footer-content">
+          <h3>Follow Us</h3>
+          <div class="socials">
+            <a href="#"
+              ><img
+                src="../icons_images/facebook.png"
+                class="footer-socials-icons"
+                alt="fb"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/instagram.png"
+                class="footer-socials-icons"
+                alt="ig"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/twitter.png"
+                class="footer-socials-icons"
+                alt="tw"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/linkedin.png"
+                class="footer-socials-icons"
+                alt="in"
+            /></a>
+          </div>
+        </div>
+
+        <div class="bottombar">
+          <p>&copy; 2025 Trova. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =================  JS  ================= -->
+    <script>
+      /* ---- sample data ---- */
+      let feedbackReviewsData = [
+        {
+          name: "Sarah Johnson",
+          product: "Summer Dress",
+          rating: 5,
+          review:
+            "Absolutely love this dress! The fabric is so comfortable and the fit is perfect.",
+          date: "2025-08-15",
+        },
+        {
+          name: "Mike Chen",
+          product: "Denim Jacket",
+          rating: 4,
+          review: "Great quality denim jacket. The colour is exactly as shown.",
+          date: "2025-08-14",
+        },
+        {
+          name: "Emma Davis",
+          product: "Casual T-shirt",
+          rating: 5,
+          review: "Softest t-shirt ever! Bought three different colours.",
+          date: "2025-08-13",
+        },
+        {
+          name: "Alex Thompson",
+          product: "Jeans",
+          rating: 3,
+          review: "Good jeans but runs a bit small. Had to exchange.",
+          date: "2025-08-12",
+        },
+      ];
+      let feedbackCurrentRating = 0;
+
+      /* ---- init ---- */
+      document.addEventListener("DOMContentLoaded", () => {
+        feedbackRender(feedbackReviewsData);
+        feedbackStarsInit();
+        feedbackFormInit();
+        feedbackFilterInit();
+      });
+
+      /* ---- stars ---- */
+      function feedbackStarsInit() {
+        const stars = document.querySelectorAll(".feedback-star");
+        stars.forEach((star) => {
+          star.addEventListener("click", () => {
+            feedbackCurrentRating = parseInt(star.dataset.rate);
+            feedbackUpdateStars(feedbackCurrentRating);
+          });
+          star.addEventListener("mouseover", () =>
+            feedbackUpdateStars(parseInt(star.dataset.rate))
+          );
+        });
+        document
+          .querySelector(".feedback-stars")
+          .addEventListener("mouseleave", () =>
+            feedbackUpdateStars(feedbackCurrentRating)
+          );
+      }
+      function feedbackUpdateStars(r) {
+        document
+          .querySelectorAll(".feedback-star")
+          .forEach((s, i) => s.classList.toggle("active", i < r));
+      }
+
+      /* ---- render reviews ---- */
+      function feedbackRender(list) {
+        const box = document.getElementById("feedbackReviewsList");
+        box.innerHTML = "";
+        if (!list.length) {
+          box.innerHTML =
+            '<p style="text-align:center;color:#666">No reviews yet.</p>';
+          return;
+        }
+        list.forEach((r) => {
+          const d = document.createElement("div");
+          d.className = "feedback-review-card";
+          d.innerHTML = `
+                    <div class="feedback-review-header">
+                        <span class="feedback-review-name">${r.name}</span>
+                        <span class="feedback-review-rating">${"★".repeat(
+                          r.rating
+                        )}${"☆".repeat(5 - r.rating)}</span>
+                    </div>
+                    <div class="feedback-review-date">${new Date(
+                      r.date
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}</div>
+                    <p style="margin:6px 0;color:#e95454"><strong>Product:</strong> ${
+                      r.product
+                    }</p>
+                    <div class="feedback-review-content">${r.review}</div>`;
+          box.appendChild(d);
+        });
+      }
+
+      /* ---- filters ---- */
+      function feedbackFilterInit() {
+        document.querySelectorAll(".feedback-filter-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document
+              .querySelectorAll(".feedback-filter-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filter = btn.dataset.filter;
+            const filtered =
+              filter === "all"
+                ? feedbackReviewsData
+                : feedbackReviewsData.filter(
+                    (r) => r.rating === parseInt(filter)
+                  );
+            feedbackRender(filtered);
+          });
+        });
+      }
+
+      /* ---- form ---- */
+      function feedbackFormInit() {
+        document
+          .getElementById("feedbackForm")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (feedbackCurrentRating === 0) {
+              alert("Please select a rating");
+              return;
+            }
+            const newReview = {
+              name: e.target.name.value,
+              email: e.target.email.value,
+              product: e.target.product.value,
+              rating: feedbackCurrentRating,
+              review: e.target.review.value,
+              date: new Date().toISOString().split("T")[0],
+            };
+            feedbackReviewsData.unshift(newReview);
+            feedbackRender(feedbackReviewsData);
+            document.getElementById("feedbackSuccess").style.display = "block";
+            setTimeout(
+              () =>
+                (document.getElementById("feedbackSuccess").style.display =
+                  "none"),
+              3000
+            );
+            e.target.reset();
+            feedbackCurrentRating = 0;
+            feedbackUpdateStars(0);
+          });
+      }
+    </script>
+  </body>
+</html>

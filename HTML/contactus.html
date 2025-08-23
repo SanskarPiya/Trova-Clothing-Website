@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/style.css" />
+
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 2.5em;
+        color: #e95454;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input,
+      textarea {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #e95454;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #e95454;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.2em;
+      }
+      .contact-info {
+        margin-top: 20px;
+        text-align: left;
+        font-size: 1em;
+      }
+      .social-icons {
+        margin-top: 10px;
+      }
+      .social-icons a {
+        margin-right: 10px;
+        color: #e95454;
+        text-decoration: none;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo">TROVA</a>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="productPage.html">Product</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="#">Feedback</a></li>
+        <li><a href="./contactus.html" class="contact-btn">Contact Us</a></li>
+      </ul>
+
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Contact Us</button>
+      </form>
+
+      <div class="contact-info">
+        <p>Contact: Trova@gmail.com</p>
+        <p>Based in Chitwan, Nepal</p>
+      </div>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <footer>
+      <!-- Creating a footer which contains Company-logo, Contact us, Quick Links, Social Media and Copyright Policy Section -->
+      <div class="footer-container">
+        <!-- For Company Logo  -->
+        <div class="footer-content">
+          <div class="company-logo">
+            <div class="company-logo-first">
+              <h1 class="logo-content">TROVA</h1>
+              <p class="logo-content-trademark">&trade;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Us Section  -->
+        <div class="footer-content">
+          <h3>Contact Us</h3>
+          <p>Email: Trova@gmail.com</p>
+          <p>Phone: 01-5591012</p>
+          <p>Address: Chitwan, Nepal</p>
+        </div>
+
+        <!-- Quick Links  -->
+        <div class="footer-content">
+          <h3>Quick Links</h3>
+          <div class="links"><a href="homepage.html">Home</a></div>
+          <!-- <div class="links"><a href="blogPage.html">Blog</a></div> -->
+          <div class="links"><a href="productPage.html">Product</a></div>
+          <!-- <div class="links"><a href="researchPage.html">Research</a></div> -->
+          <div class="links"><a href="Aboutus.html">About Us</a></div>
+          <div class="links"><a href="feedback.html">Feedback</a></div>
+          <div class="links"><a href="contactus.html">Contact Us</a></div>
+        </div>
+
+        <!-- Social Media Section  -->
+        <div class="footer-content">
+          <h3>Follow Us</h3>
+          <div class="socials">
+            <a href="#"
+              ><img
+                src="../icons_images/facebook.png"
+                alt="fb-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/instagram.png"
+                alt="insta-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/twitter.png"
+                alt="twitter-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/linkedin.png"
+                alt="linkedin-logo"
+                class="footer-socials-icons"
+            /></a>
+          </div>
+        </div>
+
+        <!-- Copyright of Company  -->
+        <div class="bottombar">
+          <p>&copy; 2025 Timely. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

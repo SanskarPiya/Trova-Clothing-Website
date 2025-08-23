@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | What we are</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/aboutus.css" />
+    <style>
+      .leader-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        width: calc(33.333% - 40px); /* 3 cards in a row with margin */
+        box-sizing: border-box;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      @media (max-width: 768px) {
+        .card {
+          width: calc(50% - 40px); /* 2 cards in a row on smaller screens */
+        }
+      }
+      @media (max-width: 480px) {
+        .card {
+          width: 100%; /* 1 card in a row on small screens */
+        }
+      }
+
+      .trova-leaders {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo">TROVA</a>
+
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="productPage.html">Product</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./feedback.html">Feedback</a></li>
+        <li><a href="./contactus.html" class="contact-btn">Contact Us</a></li>
+      </ul>
+
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="about-section">
+        <div class="about-content">
+          <div class="about-image"></div>
+          <div class="about-text-content">
+            <h1>About Us</h1>
+            <p class="about-text">
+              TROVA is more than just a clothing brand – we're a movement that
+              celebrates individuality, creativity, and authentic
+              self-expression. Founded with the vision to break conventional
+              fashion boundaries, we create bold, innovative designs that
+              empower people to embrace their unique style.
+            </p>
+            <p class="about-text">
+              Since our inception, we've been committed to producing
+              high-quality apparel that combines cutting-edge design with
+              sustainable practices. Our team of passionate designers and
+              craftspeople work tirelessly to bring you collections that are
+              both fashion-forward and environmentally conscious.
+            </p>
+            <p class="about-text">
+              At TROVA, we believe fashion should be fearless, inclusive, and
+              transformative. Join us in redefining what it means to dress with
+              purpose and style.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-us-section">
+        <h2 class="why-us-title">Why Us?</h2>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">Unique Design</h3>
+            <p class="feature-description">
+              Our design team creates original, cutting-edge pieces that you
+              won't find anywhere else. Each collection tells a story and makes
+              a statement.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">♻️</div>
+            <h3 class="feature-title">Sustainable Fashion</h3>
+            <p class="feature-description">
+              We're committed to ethical manufacturing and sustainable
+              materials, ensuring our fashion choices don't compromise the
+              future of our planet.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3 class="feature-title">Premium Quality</h3>
+            <p class="feature-description">
+              Every piece is crafted with meticulous attention to detail using
+              only the finest materials to ensure durability and comfort.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3 class="feature-title">Fast Delivery</h3>
+            <p class="feature-description">
+              Quick and reliable shipping worldwide, so you can start expressing
+              your rebel style without the wait.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3 class="feature-title">Exclusive Collections</h3>
+            <p class="feature-description">
+              Limited edition drops and exclusive collaborations that make you
+              stand out from the crowd with truly unique pieces.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3 class="feature-title">Customer Support</h3>
+            <p class="feature-description">
+              24/7 dedicated support team ready to help with sizing, styling
+              advice, and any questions about our TROVA community.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-section">
+        <h2 class="values-title">Our Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <h3>Innovation</h3>
+            <p>
+              Constantly pushing the boundaries of fashion design and
+              manufacturing techniques.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Inclusivity</h3>
+            <p>
+              Creating fashion that celebrates diversity and empowers people of
+              all backgrounds.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Authenticity</h3>
+            <p>
+              Staying true to our amazing spirit while maintaining genuine
+              connections with our community.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Quality</h3>
+            <p>
+              Never compromising on craftsmanship and materials in our pursuit
+              of excellence.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Sustainability</h3>
+            <p>
+              Committed to eco-friendly practices and responsible manufacturing
+              for a better future.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Community</h3>
+            <p>
+              Building a strong network of peoples who support and inspire each
+              other's unique journeys.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="trova-leaders">
+      <h1>Meet the leaders</h1>
+      <div class="leader-container">
+        <div class="card">
+          <a href="./prayal.html"
+            ><img
+              src="../Images/Prayal.jpg"
+              alt="Prayal Shrestha"
+              height="1000px"
+              width="560px"
+          /></a>
+          <h3>Prayal Shrestha</h3>
+          <p>Role: UI/UX Designer</p>
+        </div>
+        <div class="card">
+          <a href="./sanskar.html"
+            ><img
+              src="../Images/Sanskar.jpeg"
+              alt="Sanskar Piya"
+              height="1000px"
+              width="560px"
+          /></a>
+          <h3>Sanskar Piya</h3>
+          <p>Role: Leader, Git Manager</p>
+        </div>
+        <div class="card">
+          <a href="./safal.html"
+            ><img
+              src="../Images/Safal.jpg"
+              alt="Safal Shrestha"
+              height="1000px"
+              width="560px"
+          /></a>
+          <h3>Safal Shrestha</h3>
+          <p>Role: Content Manager</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <!-- Creating a footer which contains Company-logo, Contact us, Quick Links, Social Media and Copyright Policy Section -->
+      <div class="footer-container">
+        <!-- For Company Logo  -->
+        <div class="footer-content">
+          <div class="company-logo">
+            <div class="company-logo-first">
+              <h1 class="logo-content">TROVA</h1>
+              <p class="logo-content-trademark">&trade;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Us Section  -->
+        <div class="footer-content">
+          <h3>Contact Us</h3>
+          <p>Email: Trova@gmail.com</p>
+          <p>Phone: 01-5591012</p>
+          <p>Address: Chitwan, Nepal</p>
+        </div>
+
+        <!-- Quick Links  -->
+        <div class="footer-content">
+          <h3>Quick Links</h3>
+          <div class="links"><a href="homepage.html">Home</a></div>
+          <!-- <div class="links"><a href="blogPage.html">Blog</a></div> -->
+          <div class="links"><a href="productPage.html">Product</a></div>
+          <!-- <div class="links"><a href="researchPage.html">Research</a></div> -->
+          <div class="links"><a href="Aboutus.html">About Us</a></div>
+          <div class="links"><a href="feedback.html">Feedback</a></div>
+          <div class="links"><a href="contactus.html">Contact Us</a></div>
+        </div>
+
+        <!-- Social Media Section  -->
+        <div class="footer-content">
+          <h3>Follow Us</h3>
+          <div class="socials">
+            <a href="#"
+              ><img
+                src="../icons_images/facebook.png"
+                alt="fb-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/instagram.png"
+                alt="insta-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/twitter.png"
+                alt="twitter-logo"
+                class="footer-socials-icons"
+            /></a>
+            <a href="#"
+              ><img
+                src="../icons_images/linkedin.png"
+                alt="linkedin-logo"
+                class="footer-socials-icons"
+            /></a>
+          </div>
+        </div>
+
+        <!-- Copyright of Company  -->
+        <div class="bottombar">
+          <p>&copy; 2025 Timely. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
